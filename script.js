@@ -1,56 +1,89 @@
 const portfolioData = {
+  highlights: [
+    {
+      title: "Hands-on Biomedical Exposure",
+      subtitle: "Practical experience",
+      details: "Worked around hospital equipment servicing and learned how biomedical engineering supports patient care in real clinical environments.",
+    },
+    {
+      title: "Strong Technical Foundation",
+      subtitle: "Engineering skills",
+      details: "Built a solid base in electronics, instrumentation, testing, calibration, and device troubleshooting.",
+    },
+    {
+      title: "Problem-Solving mindset",
+      subtitle: "Approach",
+      details: "Enjoys analyzing technical issues carefully and turning academic knowledge into practical solutions.",
+    },
+    {
+      title: "Commitment to Healthcare Technology",
+      subtitle: "Professional focus",
+      details: "Eager to contribute to medical technology projects that improve reliability, safety, and patient outcomes.",
+    },
+  ],
   education: [
     {
       title: "Diploma in Biomedical Engineering",
       subtitle: "State Board of Technical Education, KMCT Polytechnic College, Calicut",
-      details: "7.4 CGPA | 2022 - 2024",
+      details: "Completed with strong academic performance and practical exposure in biomedical instrumentation, equipment testing, and maintenance. 2022 - 2024",
     },
     {
-      title: "Vocational Higher Secondary 	6 Biomedical Engineering",
+      title: "Vocational Higher Secondary School - Biomedical Engineering",
       subtitle: "Darul Uloom Ernakulam",
-      details: "76% | 2018 - 2020",
+      details: "Completed with 76% and a strong academic foundation in applied science and engineering concepts. 2018 - 2020",
     },
     {
       title: "High School",
       subtitle: "St. Maria Goretti",
-      details: "72.4% | 2017 - 2018",
+      details: "Completed with 72.4% and developed a solid base in science and mathematics. 2017 - 2018",
     },
   ],
   skills: [
-    "Medical device proficiency: diagnostic and therapeutic equipment understanding.",
-    "Instrumentation: operating and interpreting biomedical instrument behavior.",
-    "Testing & calibration: performing rigorous checks for accurate device performance.",
-    "Troubleshooting: diagnosing and resolving biomedical equipment issues.",
-    "Regulatory compliance: awareness of healthcare standards for biomedical equipment.",
+    "Medical device maintenance and servicing for healthcare equipment.",
+    "Instrumentation and biomedical device understanding for diagnostics and therapy support.",
+    "Testing and calibration to ensure equipment performance and reliability.",
+    "Troubleshooting and root-cause analysis for technical equipment issues.",
+    "Basic electronics, sensor systems, and embedded hardware concepts.",
+    "Documentation, reporting, and teamwork in a clinical or technical environment.",
   ],
   projects: [
     {
       title: "Air Quality Analyzer",
-      description: "Developed a system to detect atmospheric pollutants and support the issuance of health advisories.",
-      details: "Implemented sensors to monitor toxic and flammable gases in industrial environments, enhancing safety measures.",
+      description: "Developed a system to detect atmospheric pollutants and support health-focused environmental monitoring.",
+      details: "The project used sensors to monitor hazardous gases and helped improve awareness of air safety in industrial and public settings.",
     },
     {
       title: "Biomedical Waste Management",
-      description: "Designed a protocol for the safe and efficient management of biomedical waste.",
-      details: "Ensured compliance with health and environmental regulations to mitigate risks associated with biomedical waste.",
+      description: "Designed an organized approach for the safe and efficient handling of biomedical waste.",
+      details: "The work emphasized compliance, safety, and environmental responsibility in healthcare-related waste management.",
+    },
+    {
+      title: "EMG Sensing Using Arduino",
+      description: "Built a simple biosignal monitoring project to capture muscle activity using Arduino-based interfacing.",
+      details: "The project focused on understanding EMG signals, signal conditioning, and real-time visualization, demonstrating hands-on experience in biomedical instrumentation.",
+    },
+    {
+      title: "Body Temperature Detection System",
+      description: "Created a temperature monitoring system for quick and reliable body temperature screening.",
+      details: "The project highlighted practical biomedical sensing by using sensor-based measurement and simple processing for health monitoring applications.",
     },
   ],
   experience: [
     {
       title: "Medical College Kalamassery, Ernakulam",
-      period: "October 2024 	6 Present",
+      period: "October 2024 - Present",
       details: [
-        "Assisted in the maintenance and servicing of medical equipment, enhancing technical proficiency.",
-        "Collaborated with senior engineers to troubleshoot and resolve equipment issues.",
-        "Gained practical experience in the application of biomedical engineering principles in a clinical setting.",
+        "Assisted in the maintenance and servicing of medical equipment and improved technical understanding in a real healthcare setting.",
+        "Collaborated with senior engineers to troubleshoot and resolve equipment issues with a focus on reliability and safety.",
+        "Gained practical experience in applying biomedical engineering principles within a clinical environment.",
       ],
     },
     {
       title: "CYRIX Health Care Pvt Ltd",
       period: "June 2024",
       details: [
-        "Completed a 3-month calibration training program with the firm.",
-        "Obtained practical knowledge in handling, calibration, and assigned biomedical engineering tasks.",
+        "Completed a 3-month calibration training program and built strong practical knowledge in equipment handling.",
+        "Developed confidence in performing calibration tasks and understanding assigned biomedical engineering responsibilities.",
       ],
     },
     {
@@ -65,8 +98,8 @@ const portfolioData = {
       title: "General Hospital, Ernakulam (Internship)",
       period: "January 2020",
       details: [
-        "Observed and understood the functioning of different hospital departments.",
-        "Assisted in basic maintenance and operational tasks within the biomedical engineering department.",
+        "Observed the functioning of different hospital departments and learned about day-to-day healthcare operations.",
+        "Assisted in basic maintenance and operational support within the biomedical engineering department.",
       ],
     },
   ],
@@ -84,6 +117,14 @@ function createCard(item) {
   details.textContent = item.details || '';
   article.append(title, subtitle, details);
   return article;
+}
+
+function initHighlights() {
+  const highlightsGrid = document.getElementById('highlights-grid');
+  portfolioData.highlights.forEach((item) => {
+    const card = createCard(item);
+    highlightsGrid.appendChild(card);
+  });
 }
 
 function initEducation() {
@@ -158,6 +199,7 @@ function setupThemeToggle() {
 }
 
 function initPortfolio() {
+  initHighlights();
   initEducation();
   initSkills();
   initProjects();
